@@ -17,6 +17,9 @@ class Public::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  def after_sign_in_path_for(resource)
+    items_index_path
+  end
 
   # protected
 
@@ -24,4 +27,5 @@ class Public::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
 end

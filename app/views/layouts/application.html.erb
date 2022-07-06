@@ -11,6 +11,21 @@
   </head>
 
   <body>
+    <header>
+      <h1>
+        <%= link_to "ながのCAKE", homes_top_path %></h1>
+      <nav>
+        <ul>
+          <li><%= link_to "About", homes_about_path %></li>
+          <li><%= link_to "商品一覧", items_index_path %></li>
+          <li><%= link_to "新規登録", new_customer_registration_path %></li>
+          <li><%= link_to "ログイン", new_customer_session_path %></li>
+        </ul>
+      </nav>
+    </header>
     <%= yield %>
+    <fooert>
+      <h2>フッター</h2>
+    </fooert>
   </body>
 </html>
