@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   get 'items/index'
   get 'homes/top'
   get 'homes/about'
+  get 'public/items/index'
 end

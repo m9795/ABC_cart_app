@@ -19,7 +19,7 @@ class Public::SessionsController < Devise::SessionsController
   end
   
   def after_sign_in_path_for(resource)
-    items_index_path
+    public_items_index_path
   end
 
   # protected
