@@ -17,15 +17,16 @@
         <ul>
         <% if customer_signed_in? %>
           会員画面
-          <li><%= "マイページ" %></li>
+          <li><%= link_to "マイページ", public_customer_path(current_customer) %></li>
           <li><%= link_to "商品一覧", public_items_path %></li>
           <li><%= "カート" %></li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
         <% elsif admin_signed_in? %>
           管理者画面
-          <li><%= "マイページ" %></li>
           <li><%= link_to "商品一覧", admin_items_path %></li>
-          <li><%= "カート" %></li>
+          <li><%= "会員一覧" %></li>
+          <li><%= "注文履歴一覧" %></li>
+          <li><%= "ジャンル一覧" %></li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
         <% else %>
         　ゲスト
