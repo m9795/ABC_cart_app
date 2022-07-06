@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items, only: [:index]
+    resources :items, only: [:index, :new, :create]
   end
   # get 'public/items/index'
   # get 'admin/items/index'
