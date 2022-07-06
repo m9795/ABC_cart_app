@@ -16,6 +16,13 @@
       <nav>
         <ul>
         <% if customer_signed_in? %>
+          会員画面
+          <li><%= "マイページ" %></li>
+          <li><%= link_to "商品一覧", items_index_path %></li>
+          <li><%= "カート" %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
+        <% elsif admin_signed_in? %>
+          管理者画面
           <li><%= "マイページ" %></li>
           <li><%= link_to "商品一覧", items_index_path %></li>
           <li><%= "カート" %></li>
@@ -25,6 +32,7 @@
           <li><%= link_to "商品一覧", items_index_path %></li>
           <li><%= link_to "新規登録", new_customer_registration_path %></li>
           <li><%= link_to "ログイン", new_customer_session_path %></li>
+          <li><%= link_to "管理者の方はこちら", new_admin_session_path %></li>
         <% end %>
         </ul>
       </nav>
