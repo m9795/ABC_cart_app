@@ -18,11 +18,11 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
   def after_sign_out_path_for(resource)
-    homes_top_path
+    root_path
   end
-  
+
   def after_sign_in_path_for(resource)
-    items_index_path
+    admin_items_path
   end
   # protected
 

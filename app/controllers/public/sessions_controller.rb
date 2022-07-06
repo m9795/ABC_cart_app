@@ -15,11 +15,11 @@ class Public::SessionsController < Devise::SessionsController
 
   # DELETE /resource/sign_out
   def after_sign_out_path_for(resource)
-    homes_top_path
+    root_path
   end
   
   def after_sign_in_path_for(resource)
-    public_items_index_path
+    public_items_path
   end
 
   # protected

@@ -12,24 +12,25 @@
 
   <body>
     <header>
-      <h1><%= link_to "ながのCAKE", homes_top_path %></h1>
+      <h1><%= link_to "ながのCAKE", root_path %></h1>
       <nav>
         <ul>
         <% if customer_signed_in? %>
           会員画面
           <li><%= "マイページ" %></li>
-          <li><%= link_to "商品一覧", items_index_path %></li>
+          <li><%= link_to "商品一覧", public_items_path %></li>
           <li><%= "カート" %></li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
         <% elsif admin_signed_in? %>
           管理者画面
           <li><%= "マイページ" %></li>
-          <li><%= link_to "商品一覧", items_index_path %></li>
+          <li><%= link_to "商品一覧", admin_items_path %></li>
           <li><%= "カート" %></li>
           <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "About", homes_about_path %></li>
-          <li><%= link_to "商品一覧", items_index_path %></li>
+        　ゲスト
+          <li><%= link_to "About", about_path %></li>
+          <li><%= link_to "商品一覧", items_path %></li>
           <li><%= link_to "新規登録", new_customer_registration_path %></li>
           <li><%= link_to "ログイン", new_customer_session_path %></li>
           <li><%= link_to "管理者の方はこちら", new_admin_session_path %></li>
