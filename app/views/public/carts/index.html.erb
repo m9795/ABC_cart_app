@@ -1,7 +1,13 @@
 <h1>Public::Carts#index</h1>
-<p>Find me in app/views/public/carts/index.html.erb</p>
-<% @carts.each do |cart| %>
-  <%= cart.item.item_name %>
-  <%= cart.item.price %>円
-  <%= cart.quantity %>個
-<% end %>
+<h2>カート商品一覧</h2>
+<table>
+  <tbody>
+    <% @carts.each do |cart| %>
+      <tr>
+        <td><%= cart.item.item_name %></td>
+        <td><%= cart.item.price %>円</td>
+        <td><%= cart.quantity %>個</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
