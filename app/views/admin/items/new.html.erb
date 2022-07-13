@@ -1,0 +1,10 @@
+<h1>新規商品登録画面</h1>
+<%= form_with model:@item, url:admin_items_path do |f| %>
+  <%= f.label :"商品名" %>
+  <%= f.text_field :item_name %><br />
+  <%= f.label :"説明" %>
+  <%= f.text_area :item_introduction %><br />
+  <%= f.label :"価格" %>
+  <%= f.text_field :price %>
+  <%= f.submit "新規登録" %>
+<% end %>

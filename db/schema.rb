@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_06_165149) do
+ActiveRecord::Schema.define(version: 2022_07_13_015032) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2022_07_06_165149) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "item_id"
+    t.integer "quantity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -44,9 +52,17 @@ ActiveRecord::Schema.define(version: 2022_07_06_165149) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "introduction", null: false
+    t.integer "janru_id"
+    t.integer "admin_id"
+    t.string "item_name", null: false
+    t.text "item_introduction", null: false
     t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "janrus", force: :cascade do |t|
+    t.string "janru_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

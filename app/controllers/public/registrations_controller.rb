@@ -38,7 +38,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
   def after_sign_up_path_for(resource)
-    items_index_path
+    items_path
   end
   protected
   def configure_permitted_parameters

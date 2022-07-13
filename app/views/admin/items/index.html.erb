@@ -2,8 +2,8 @@
 <%= link_to "+", new_admin_item_path %>
 <p>登録済み商品一覧</p>
 <p>商品名</p>
-<%= @items.each do |item| %>
-  <%= item.name %>
-  <%= item.introduction %>
+<% @items.each do |item| %>
+  <%= item.item_name %>
+  <%= item.item_introduction %>
   <%= item.price %>
 <% end %>

@@ -1,0 +1,2 @@
+class Janru < ApplicationRecord
+end
