@@ -1,9 +1,14 @@
 <%= render "items/index" %>
 <%= link_to "+", new_admin_item_path %>
-<p>登録済み商品一覧</p>
-<p>商品名</p>
-<% @items.each do |item| %>
-  <%= item.item_name %>
-  <%= item.item_introduction %>
-  <%= item.price %>
-<% end %>
+<h2>商品一覧</h2>
+<table>
+  <tbody>
+    <% @items.each do |item| %>
+     <tr>
+      <td><%= item.item_name %></td>
+      <td><%= item.item_introduction %></td>
+      <td><%= item.price %></td>
+     </tr>
+    <% end %>
+  </tbody>
+</table>
