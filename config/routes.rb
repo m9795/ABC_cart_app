@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'homes/top'
+  get 'homes/about'
   devise_for :customer, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
@@ -12,7 +14,7 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :carts, only: [:index]
+    resources :carts, only: [:index, :create]
     resources :customers, only: [:index, :show]
   end
 
