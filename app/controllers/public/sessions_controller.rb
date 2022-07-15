@@ -22,18 +22,6 @@ class Public::SessionsController < Devise::SessionsController
     public_items_path
   end
 
-  protected
-  def customer_state
-    @customer = Customer.find_by(email: params[:customer][:email])
-    return if !@customer
-    
-    if @customer.valid_password?(params[:customer][:password])　&& (@customer.is_deleted == false)
-      redirect_to new_customer_registration
-    else
-      
-    end
-  end
-
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
