@@ -1,24 +1,16 @@
-# README
+# ECサイト作成練習アプリ
+### ABC_cart
+![Logo1](https://user-images.githubusercontent.com/106650955/179213132-f948cf60-4763-4c4f-831f-42e69a3d0a59.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 実装機能
+### 会員・管理者でのログイン
 
-Things you may want to cover:
+## 会員側機能
+* ログイン・ログアウト
+* マイページ閲覧
+* 商品の閲覧
+* カートに追加
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 管理者側
+* ログイン・ログアウト
+* 商品の登録
