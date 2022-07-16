@@ -7,7 +7,7 @@ class Public::CartsController < ApplicationController
   def create
     cart = Cart.new(cart_params)
     cart.save
-    redirect_to public_items_path
+    redirect_to public_customer_carts_path
   end
 
   private
