@@ -14,23 +14,22 @@
     <tbody>
       <tr>
         <td><%= cart.item.item_name %></td>
-        <td><%= cart.item.price*1.1.round %>円</td>
+        <td><%= cart.tax_price %>円</td>
         <td><%= cart.quantity %>個</td>
-        <td><%= cart.item.price*cart.quantity*1.1.round %>円</td>
-        <td>削除する</td>
+        <td><%= cart.tax_price * cart.quantity %>円</td>
+        <td><%= link_to "削除する", public_cart_path(cart.id), method: :delete %></td>
       </tr>
     </tbody>
   <% end %>
 </table>
 <table>
-  <% @carts.each do |cart| %>
-    <tbody>
-      <tr>
+  <tbody>
+    <tr>
+      <% @carts.each do |cart| %>
+        <% @total = @total+ cart.subtotal %>
+      <% end %>
         <td>合計金額</td>
-        <td></td>
-      </tr>
-    </tbody>
-  <% end %>
+        <td><%= @total %></td>
+    </tr>
+  </tbody>
 </table>
-
-
