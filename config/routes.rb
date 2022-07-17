@@ -17,9 +17,8 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :customers, only: [:index, :show] do
-      resources :carts, only: [:index, :create]
-    end
+    resources :customers, only: [:index, :show]
+    resources :carts, only: [:index, :create, :destroy]
   end
 
   namespace :admin do

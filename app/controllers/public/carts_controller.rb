@@ -2,12 +2,19 @@ class Public::CartsController < ApplicationController
   def index
     @customer = current_customer
     @carts = @customer.carts
+    @total = 0
   end
 
   def create
     cart = Cart.new(cart_params)
     cart.save
-    redirect_to public_items_path
+    redirect_to public_carts_path
+  end
+
+  def destroy
+    cart = Cart.find(params[:id])
+    cart.destroy
+    redirect_to request.referer
   end
 
   private

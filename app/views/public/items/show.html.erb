@@ -3,7 +3,7 @@
 <%= @item.item_introduction %><br />
 <b>￥<%= @item.price %></b>(税込)
 
-<%= form_with model: @cart, url: public_customer_carts_path(current_customer), method: :post do |f| %>
+<%= form_with model: @cart, url: public_carts_path, method: :post do |f| %>
   <%= f.hidden_field :customer_id, :value => @customer.id %>
   <%= f.hidden_field :item_id, :value => @item.id %>
   <%#= hidden_field :item_name, :value => @item.name %>
