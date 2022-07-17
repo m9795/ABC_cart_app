@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :public do
-    get 'customers/show'
+
   end
   get 'homes/top'
   get 'homes/about'
@@ -17,8 +17,10 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :customers, only: [:index, :show]
+    resources :customers, only: [:update]
     resources :carts, only: [:index, :create, :destroy]
+    get 'customers/my_page' => 'customers#show', as: :customers_my_page
+    get 'customers/infomation/edit' => 'customers#edit', as: :customers_infomation
   end
 
   namespace :admin do
