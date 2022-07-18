@@ -1,12 +1,12 @@
 <h1>商品詳細画面</h1>
 <h2><%= @item.item_name %></h2>
-<%= @item.item_introduction %><br />
-<b>￥<%= @item.price %></b>(税込)
+<h3><%= @item.item_introduction %></h3>
+<h2 style="display:inline;">￥<%= @item.price %></h2>(税込)
 
 <%= form_with model: @cart, url: public_carts_path, method: :post do |f| %>
   <%= f.hidden_field :customer_id, :value => @customer.id %>
   <%= f.hidden_field :item_id, :value => @item.id %>
   <%#= hidden_field :item_name, :value => @item.name %>
-  <%= f.select :quantity, [["1","1"],["2","2"],["5","5"],["10","10"],["15","15"]], include_blank: "個数選択" %>
+  <%= f.select :quantity, *[1..10], include_blank: "個数選択" %>
   <%= f.submit "カートに入れる" %>
 <% end %>
