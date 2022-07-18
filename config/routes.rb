@@ -15,7 +15,8 @@ Rails.application.routes.draw do
     get 'customers/my_page' => 'customers#show'
     get 'customers/infomation/edit' => 'customers#edit'
     patch 'customers/infomation' => 'customers#update'
-
+    get 'customers/out_check' => 'customers#out_check'
+    patch 'customers/out' => 'customers#out'
   end
 
   namespace :admin do
