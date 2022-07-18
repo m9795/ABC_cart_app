@@ -21,7 +21,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :items, only: [:index, :new, :create]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
+  
   resources :items, only: [:index]
   # get 'public/items/index'
   # get 'admin/items/index'
