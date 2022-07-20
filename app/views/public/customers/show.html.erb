@@ -1,10 +1,24 @@
 <h1>Public::Customers#show</h1>
 <h2>登録情報</h2>
-<%= link_to "編集する", public_customers_infomation_edit_path %>
+<%= link_to "編集する", public_customers_infomation_edit_path, type: "button", class: "btn btn-outline-success", style: "width:140px" %>
 <table>
-  <tr>
-    <th>氏名</th>
-    <th><%= @customer.last_name %> <%= @customer.first_name %></th>
-  </tr>
+  <tbody>
+    <tr>
+      <td>氏名</td>
+      <td><%= @customer.full_name %></td>
+    </tr>
+    <tr>
+      <td>フリガナ</td>
+      <td><%= @customer.full_name_kana %></td>
+    </tr>
+    <tr>
+      <td>郵便番号</td>
+      <td><%= @customer.postcode %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス</td>
+      <td><%= @customer.email %></td>
+    </tr>
+  </tbody>
 </table>
 
