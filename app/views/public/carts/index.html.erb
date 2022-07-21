@@ -13,10 +13,11 @@
   <% @carts.each do |cart| %>
     <tbody>
       <tr>
+        <td><%= image_tag cart.item.get_image, class: 'cart_item_image' %></td>
         <td><%= cart.item.item_name %></td>
-        <td><%= cart.tax_price %>円</td>
+        <td><%= cart.tax_price.to_s(:delimited) %>円</td>
         <td><%= cart.quantity %>個</td>
-        <td><%= cart.tax_price * cart.quantity %>円</td>
+        <td><%= (cart.tax_price * cart.quantity).to_s(:delimited) %>円</td>
         <td><%= link_to "削除する", public_cart_path(cart.id), method: :delete %></td>
       </tr>
     </tbody>
@@ -25,11 +26,13 @@
 <table>
   <tbody>
     <tr>
+      <td><%= link_to "買い物を続ける", public_items_path %></td>
       <% @carts.each do |cart| %>
         <% @total = @total+ cart.subtotal %>
       <% end %>
-        <td>合計金額</td>
-        <td><%= @total %></td>
+      <td>合計金額</td>
+      <td><%= @total.to_s(:delimited) %></td>
     </tr>
   </tbody>
 </table>
+<%#= link_to "情報入力にすすむ" %>
