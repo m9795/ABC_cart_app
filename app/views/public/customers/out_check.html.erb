@@ -1,7 +1,10 @@
 <h2>本当に退会しますか？</h2>
 <p>退会すると、～～～～</p>
 
-<%=link_to "退会しない", public_customers_my_page_path %>
+<%= form_with model: @customer, url: public_customers_out_path, method: :patch do |f| %>
+  <%= f.hidden_field :is_deleted, :value => "false" %>
+  <%= f.submit "退会しない" %>
+<% end %>
 <%= form_with model: @customer, url: public_customers_out_path, method: :patch do |f| %>
   <%= f.hidden_field :is_deleted, :value => "true" %>
   <%= f.submit "退会する" %>
