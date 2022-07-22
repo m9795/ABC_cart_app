@@ -7,5 +7,10 @@
     <h3><%= item.item_name %></h3>
     <p><%= item.item_introduction %></p>
     <p><%= item.price %>円</p>
+    <% if item.sale_status == true %>
+      <b class="text-success">販売中</b>
+    <% else %>
+      <b class="text-black-50">販売中止中</b>
+    <% end %>
   </div>
 <% end %>

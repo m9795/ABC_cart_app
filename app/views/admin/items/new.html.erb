@@ -19,8 +19,14 @@
       <td><%= f.text_field :price %></td>
     </tr>
     <tr>
-      <td><%= f.label :"販売ステータス" %></td>
-      <td>　販売中｜販売停止中</td>
+      <td>
+        <%= f.radio_button :sale_status, :true, checked: true %>
+        <%= f.label :sale_status, "販売中" %>
+      </td>
+      <td>
+        <%= f.radio_button :sale_status, :false %>
+        <%= f.label :sale_status, "販売停止中" %>
+      </td>
     </tr>
     <td><%= f.submit "新規登録" %></td>
   </tbody>
