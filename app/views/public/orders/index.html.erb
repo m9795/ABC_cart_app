@@ -13,14 +13,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= link_to "表示する", public_orders_show_path %></td>
-    </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.item.item_name %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to "表示する", public_orders_show_path %></td>
+      </tr>
+    <% end %>
   </tbody>
   <tr></tr>
 </table>

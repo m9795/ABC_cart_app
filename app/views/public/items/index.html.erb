@@ -4,12 +4,12 @@
 <table>
   <tbody>
     <% @items.each do |item| %>
-      <tr>
-        <td><%= image_tag item.get_image, class: 'item_image' %></td>
-        <td><%= link_to item.item_name, public_item_path(item.id) %></td>
-        <td><%= item.item_introduction %></td>
-        <td><%= item.price.to_s(:delimited) %>円</td>
-      </tr>
+      <div class="float3">
+        <%= image_tag item.get_image, class: 'item_image' %>
+        <h5><%= link_to item.item_name, public_item_path(item.id) %></h5>
+        <p><%= item.item_introduction %></p>
+        <p><%= item.price.to_s(:delimited) %>円</p>
+      </div>
     <% end %>
   </tbody>
 </table>

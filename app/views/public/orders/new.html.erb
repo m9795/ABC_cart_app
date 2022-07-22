@@ -14,6 +14,6 @@
   <%= f.radio_button :address, :address , checked: true %>
   <%= f.label :address, "ご自身の住所", value: :address %><br />
   <%= @customer.adress %>
-
+  <%= f.hidden_field :customer_id, :value => @customer.id %>
   <%= f.submit "確認画面へ進む" %>
 <% end %>

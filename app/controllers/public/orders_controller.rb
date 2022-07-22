@@ -5,8 +5,9 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    @order = Order.new(order_params)
-    @order.save
+    @order = Order.find(current_customer.ordered.id)
+    order = Order.new(order_params)
+    order.save
     redirect_to public_orders_complete_path
   end
 
