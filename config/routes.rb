@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'sipping_addresses/index'
+    get 'sipping_addresses/edit'
+    post 'sipping_addresses/index' => 'sipping_addresses#create'
+  end
+  namespace :public do
+    get 'orders/new'
+    get 'orders/index'
+    get 'orders/show'
+    post '/orders/confirm' => 'orders#create'
+  end
   devise_for :customer, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
@@ -20,10 +31,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :items, only: [:index, :new, :create]
+    resources :items, only: [:index, :new, :create, :show]
     resources :customers, only: [:index, :show, :edit, :update]
   end
-  
+
   resources :items, only: [:index]
   # get 'public/items/index'
   # get 'admin/items/index'

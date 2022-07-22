@@ -1,14 +1,11 @@
 <%= render "items/index" %>
 <%= link_to "+", new_admin_item_path %>
 <h2>商品一覧</h2>
-<table>
-  <tbody>
-    <% @items.each do |item| %>
-     <tr>
-      <td><%= item.item_name %></td>
-      <td><%= item.item_introduction %></td>
-      <td><%= item.price %></td>
-     </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @items.each do |item| %>
+  <div class="float3">
+    <%= image_tag item.get_image, class: 'item_image' %>
+    <h3><%= item.item_name %></h3>
+    <p><%= item.item_introduction %></p>
+    <p><%= item.price %>円</p>
+  </div>
+<% end %>
