@@ -21,11 +21,11 @@
     <tr>
       <td>
         <%= f.radio_button :sale_status, :true, checked: true %>
-        <%= f.label :sale_status, "販売中" %>
+        <%= f.label :sale_status, "販売中", value: true %>
       </td>
       <td>
         <%= f.radio_button :sale_status, :false %>
-        <%= f.label :sale_status, "販売停止中" %>
+        <%= f.label :sale_status, "販売停止中", value: false %>
       </td>
     </tr>
     <td><%= f.submit "新規登録" %></td>
