@@ -4,17 +4,16 @@
 <h3>注文情報入力</h3>
 <p>支払方法</p>
 
-<%= form_with model: @order, url: public_orders_confirm_path, method: :patch do |f| %>
-  <%= f.radio_button :payment_method, :0 , checked: 0 %>
-  <%= f.label :payment_method, "クレジットカード", value: 0 %>
-  <%= f.radio_button :payment_method, :1 %>
-  <%= f.label :payment_method, "銀行振込", value: 1 %>
-<% end %>
+<%= form_with model: @order, url: public_orders_confirm_path, method: :post do |f| %>
+  <%= f.radio_button :payment_method, :credit_card , checked: true %>
+  <%= f.label :payment_method, "クレジットカード", value: :credit_card %>
+  <%= f.radio_button :payment_method, :transfer %>
+  <%= f.label :payment_method, "銀行振込", value: :transfer %>
 
 <h3>お届け先</h3>
-<%#= form_with model: @order, url: public_orders_confirm_path, method: :patch do |f| %>
-  <%#= f.radio_button :address, :credit_card , checked: : %>
-  <%#= f.label :address, "クレジットカード", value: :credit_card %>
-  <%#= f.radio_button :address, :transfer %>
-  <%#= f.label :address, "銀行振込", value: :transfer %>
-<%# end %>
+  <%= f.radio_button :address, :address , checked: true %>
+  <%= f.label :address, "ご自身の住所", value: :address %><br />
+  <%= @customer.adress %>
+
+  <%= f.submit "確認画面へ進む" %>
+<% end %>

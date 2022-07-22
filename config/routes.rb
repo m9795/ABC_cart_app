@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     get 'orders/new'
     get 'orders/index'
     get 'orders/show'
-    post '/orders/confirm' => 'orders#create'
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
+    post 'orders/index' => 'orders#create'
   end
   devise_for :customer, skip: [:passwords], controllers: {
     registrations: "public/registrations",
