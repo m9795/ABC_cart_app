@@ -6,46 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
-      <a>
-        <%= link_to  root_path do %>
-          <%= image_tag 'Logo2.png', onmouseover: "this.src='#{asset_path('Logo2_2.png')}'", onmouseout: "this.src='#{asset_path('Logo2.png')}'", :width => "280", :height => "100" %>
-        <% end %>
-      </a>
-      <nav>
-        <ul>
-        <% if customer_signed_in? %>
-          会員画面
-          <li><%= link_to "マイページ", public_customers_my_page_path %></li>
-          <li><%= link_to "商品一覧", public_items_path %></li>
-          <li><%= link_to "カート", public_carts_path %></li>
-          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-        <% elsif admin_signed_in? %>
-          管理者画面
-          <li><%= link_to "商品一覧", admin_items_path %></li>
-          <li><%= "会員一覧" %></li>
-          <li><%= "注文履歴一覧" %></li>
-          <li><%= "ジャンル一覧" %></li>
-          <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-        <% else %>
-        　ゲスト
-          <li><%= link_to "About", about_path %></li>
-          <li><%= link_to "商品一覧", items_path %></li>
-          <li><%= link_to "新規登録", new_customer_registration_path %></li>
-          <li><%= link_to "ログイン", new_customer_session_path %></li>
-          <li><%= link_to "管理者の方はこちら", new_admin_session_path %></li>
-        <% end %>
-        </ul>
-      </nav>
-    </header>
-    <%= yield %>
-    <fooert>
-      <h2>フッター</h2>
-    </fooert>
+    <%= render 'layouts/header' %>
+    <main>
+      <%= yield %>
+    </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
