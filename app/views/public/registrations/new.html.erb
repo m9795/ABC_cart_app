@@ -60,3 +60,20 @@
 <h2>既に登録済みの方</h2>
 
 <%= render "public/shared/links" %>
+
+<script>
+  // $(function() {
+  //   history.pushState(null, null, null);
+
+  //   $(window).on("popstate", function(){
+  //     history.pushState(null, null, null);
+  //   });
+  // });
+
+  $(function(){
+   history.pushState(null, null);
+   $(window).on("popstate", function (event) {
+     location.href = "/about";
+   })
+ });
+</script>

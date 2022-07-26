@@ -59,3 +59,4 @@ gem 'devise'
 gem 'dotenv-rails'
 gem 'pry-rails'
 gem "enum_help"
+gem 'rails-i18n'
