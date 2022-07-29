@@ -1,24 +1,13 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'sipping_addresses/index'
-    get 'sipping_addresses/edit'
-    post 'sipping_addresses/index' => 'sipping_addresses#create'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/index'
-    get 'orders/show'
-    post 'orders/confirm' => 'orders#confirm'
-    get 'orders/complete' => 'orders#complete'
-    post 'orders/index' => 'orders#create'
-  end
   devise_for :customer, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: "public/sessions"
   }
+  
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
+  
   root to: 'homes#top'
   get 'about' => 'homes#about'
 
@@ -29,6 +18,16 @@ Rails.application.routes.draw do
         delete 'destory_all' => 'carts#destory_all'
       end
     end
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        post 'confirm' => 'orders#confirm'
+        get 'complete' => 'orders#complete'
+      end
+    end
+    get 'sipping_addresses/index'
+    get 'sipping_addresses/edit'
+    post 'sipping_addresses/index' => 'sipping_addresses#create'
+    
     get 'customers/my_page' => 'customers#show'
     get 'customers/infomation/edit' => 'customers#edit'
     patch 'customers/infomation' => 'customers#update'

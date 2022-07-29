@@ -12,15 +12,21 @@
       <th>注文詳細</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td><%= link_to "表示する", public_orders_show_path %></td>
-    </tr>
-  </tbody>
+  <% @orders.each do |order| %>
+    <tbody>
+      <tr>
+        <td><%= order.created_at %></td>
+        <td><%#= order.adress %></td>
+        <td>
+          <% order.ordered_items.each do |ordered_item| %>
+            <%= ordered_item.item.item_name %>
+          <% end %>
+        </td>
+        <td></td>
+        <td></td>
+        <td><%#= link_to "表示する", public_orders_show_path %></td>
+      </tr>
+    </tbody>
+  <% end %>
   <tr></tr>
 </table>
