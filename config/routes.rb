@@ -24,7 +24,11 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :items, only: [:index, :show]
-    resources :carts, only: [:index, :create, :destroy]
+    resources :carts, only: [:index, :create, :destroy] do
+      collection do
+        delete 'destory_all' => 'carts#destory_all'
+      end
+    end
     get 'customers/my_page' => 'customers#show'
     get 'customers/infomation/edit' => 'customers#edit'
     patch 'customers/infomation' => 'customers#update'
