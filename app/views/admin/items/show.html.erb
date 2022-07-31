@@ -1,0 +1,7 @@
+<h3>商品詳細画面</h3>
+  <div class="float3">
+    <%= image_tag @item.get_image, class: 'item_image' %>
+    <h3><%= @item.item_name %></h3>
+    <p><%= @item.item_introduction %></p>
+    <p><%= @item.price %>円</p>
+  </div>

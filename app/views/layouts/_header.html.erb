@@ -1,0 +1,34 @@
+<header>
+  <nav class="navbar navbar-expand-xl navbar-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"><span><%= image_tag('naganocake2') %></span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="nav">
+        <% if customer_signed_in? %>
+          <li class='nav-link text-light'>会員PagePage</li>
+          <li><%= link_to "マイページ", public_customers_my_page_path,class: 'nav-link text-light' %></li>
+          <li><%= link_to "商品一覧", public_items_path,class: 'nav-link text-light' %></li>
+          <li><%= link_to "カート", public_carts_path,class: 'nav-link text-light' %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path,class: 'nav-link text-light', method: :delete %></li>
+        <% elsif admin_signed_in? %>
+           <li class='nav-link text-light'>管理者Page</li>
+          <li><%= link_to "商品一覧", admin_items_path,class: 'nav-link text-light' %></li>
+          <li><%#= "会員一覧",class: 'nav-link text-light' %></li>
+          <li><%#= "注文履歴一覧",class: 'nav-link text-light' %></li>
+          <li><%#= "ジャンル一覧",class: 'nav-link text-light' %></li>
+          <li><%= link_to "ログアウト", destroy_customer_session_path,class: 'nav-link text-light', method: :delete %></li>
+        <% else %>
+          <li><%= link_to "About", about_path,class: 'nav-link text-secondary border rounded font-italic px-4 py-3 m-2 ' %></li>
+          <li><%= link_to "商品一覧", items_path,class: 'nav-link text-secondary border rounded font-italic px-4 py-3 m-2' %></li>
+          <li><%= link_to "新規登録", new_customer_registration_path,class: 'nav-link text-secondary border rounded font-italic px-4 py-3 m-2' %></li>
+          <li><%= link_to "ログイン", new_customer_session_path,class: 'nav-link text-secondary border rounded font-italic px-4 py-3  m-2' %></li>
+          <li><%= link_to "管理者の方はこちら", new_admin_session_path,class: 'nav-link text-secondary border rounded font-italic px-4 py-3 m-2' %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

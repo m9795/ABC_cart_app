@@ -1,13 +1,43 @@
 <h1>Public::Carts#index</h1>
 <h2>カート商品一覧</h2>
 <table>
-  <tbody>
-    <% @carts.each do |cart| %>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>個数</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+  </thead>
+  <% @carts.each do |cart| %>
+    <tbody>
       <tr>
+        <td><%= image_tag cart.item.get_image, class: 'cart_item_image' %></td>
         <td><%= cart.item.item_name %></td>
-        <td><%= cart.item.price %>円</td>
+        <td><%= cart.tax_price.to_s(:delimited) %>円</td>
         <td><%= cart.quantity %>個</td>
+        <td><%= (cart.tax_price * cart.quantity).to_s(:delimited) %>円</td>
+        <td><%= link_to "削除する", public_cart_path(cart.id), method: :delete %></td>
       </tr>
-    <% end %>
+    </tbody>
+  <% end %>
+</table>
+<table>
+  <tbody>
+    <tr>
+      <td><%= link_to "買い物を続ける", public_items_path %></td>
+      <% @carts.each do |cart| %>
+        <% @total = @total+ cart.subtotal %>
+      <% end %>
+      <td>合計金額</td>
+      <td><%= @total.to_s(:delimited) %></td>
+    </tr>
   </tbody>
 </table>
+<% if current_customer.carts.present? %>
+  <%= link_to "情報入力にすすむ", new_public_order_path %>
+  <%= link_to "カートを空にする", destory_all_public_carts_path, method: :delete, data: { confirm: "本当にカート内商品をすべて削除しますか？" } %>
+<% else %>
+  <%= "商品が入っていません" %>
+<% end %>

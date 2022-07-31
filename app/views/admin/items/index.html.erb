@@ -1,14 +1,16 @@
 <%= render "items/index" %>
 <%= link_to "+", new_admin_item_path %>
 <h2>商品一覧</h2>
-<table>
-  <tbody>
-    <% @items.each do |item| %>
-     <tr>
-      <td><%= item.item_name %></td>
-      <td><%= item.item_introduction %></td>
-      <td><%= item.price %></td>
-     </tr>
+<% @items.each do |item| %>
+  <div class="float3">
+    <%= image_tag item.get_image, class: 'item_image' %>
+    <h3><%= item.item_name %></h3>
+    <p><%= item.item_introduction %></p>
+    <p><%= item.price %>円</p>
+    <% if item.sale_status == true %>
+      <b class="text-success">販売中</b>
+    <% else %>
+      <b class="text-black-50">販売中止中</b>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>
